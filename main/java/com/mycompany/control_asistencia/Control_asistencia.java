@@ -15,5 +15,5 @@ public class Control_asistencia {
         
         Conexion objetoConexion = new Conexion();
         objetoConexion.estableceConeccion();
-    }
+    }//comentario para saber si se subio
 }
