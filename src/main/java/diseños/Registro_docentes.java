@@ -4,6 +4,9 @@
  */
 package diseños;
 
+import codigo.RDocentes;
+
+
 /**
  *
  * @author Santiago
@@ -13,8 +16,12 @@ public class Registro_docentes extends javax.swing.JFrame {
     /**
      * Creates new form Registro_docentes
      */
+    RDocentes doc= new RDocentes();
+    
     public Registro_docentes() {
         initComponents();
+        doc.comboCarrera("car_nombre", comboCarrera);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -30,21 +37,22 @@ public class Registro_docentes extends javax.swing.JFrame {
         bg3 = new javax.swing.JPanel();
         title3 = new javax.swing.JLabel();
         titleLbl3 = new javax.swing.JLabel();
-        titleTxt3 = new javax.swing.JTextField();
         dateLbl3 = new javax.swing.JLabel();
-        dateTxt3 = new javax.swing.JTextField();
         authorLbl3 = new javax.swing.JLabel();
-        authorTxt3 = new javax.swing.JTextField();
         catLbl3 = new javax.swing.JLabel();
-        catTxt3 = new javax.swing.JTextField();
         edLbl3 = new javax.swing.JLabel();
-        edTxt3 = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
         langLbl3 = new javax.swing.JLabel();
-        langTxt3 = new javax.swing.JTextField();
         pagsLbl3 = new javax.swing.JLabel();
-        button3 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        comboCarrera = new javax.swing.JComboBox<>();
+        txtCedula = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtApellido = new javax.swing.JTextField();
+        txtDireccion = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
+        txtNacimiento = new javax.swing.JTextField();
+        btnRegresar = new javax.swing.JButton();
+        btnSubir2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,23 +77,67 @@ public class Registro_docentes extends javax.swing.JFrame {
 
         langLbl3.setText("Fecha de nacimiento");
 
-        langTxt3.setToolTipText("");
-
         pagsLbl3.setText("Carreras");
 
-        button3.setBackground(new java.awt.Color(18, 90, 173));
-        button3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        button3.setForeground(new java.awt.Color(255, 255, 255));
-        button3.setText("Subir");
-        button3.setBorderPainted(false);
-        button3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        button3.addActionListener(new java.awt.event.ActionListener() {
+        comboCarrera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button3ActionPerformed(evt);
+                comboCarreraActionPerformed(evt);
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        txtCedula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCedulaActionPerformed(evt);
+            }
+        });
+
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+
+        txtApellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtApellidoActionPerformed(evt);
+            }
+        });
+
+        txtDireccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDireccionActionPerformed(evt);
+            }
+        });
+
+        txtTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefonoActionPerformed(evt);
+            }
+        });
+
+        btnRegresar.setBackground(new java.awt.Color(18, 90, 173));
+        btnRegresar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnRegresar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegresar.setText("Regresar");
+        btnRegresar.setBorderPainted(false);
+        btnRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
+
+        btnSubir2.setBackground(new java.awt.Color(18, 90, 173));
+        btnSubir2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnSubir2.setForeground(new java.awt.Color(255, 255, 255));
+        btnSubir2.setText("Subir");
+        btnSubir2.setBorderPainted(false);
+        btnSubir2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSubir2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubir2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout bg3Layout = new javax.swing.GroupLayout(bg3);
         bg3.setLayout(bg3Layout);
@@ -95,48 +147,65 @@ public class Registro_docentes extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(bg3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(bg3Layout.createSequentialGroup()
+                        .addComponent(title3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(553, 553, 553))
+                    .addGroup(bg3Layout.createSequentialGroup()
                         .addGroup(bg3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(catTxt3)
-                            .addComponent(authorTxt3)
-                            .addGroup(bg3Layout.createSequentialGroup()
-                                .addComponent(authorLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(233, 233, 233))
-                            .addGroup(bg3Layout.createSequentialGroup()
-                                .addComponent(catLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(213, 213, 213))
                             .addGroup(bg3Layout.createSequentialGroup()
                                 .addComponent(titleLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(234, 234, 234))
-                            .addComponent(titleTxt3)
+                                .addGap(302, 302, 302))
                             .addGroup(bg3Layout.createSequentialGroup()
                                 .addComponent(dateLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(161, 161, 161))
-                            .addComponent(dateTxt3)
-                            .addComponent(edTxt3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGap(229, 229, 229))
                             .addGroup(bg3Layout.createSequentialGroup()
-                                .addComponent(edLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(227, 227, 227)))
-                        .addGap(68, 68, 68)
+                                .addComponent(edLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
+                                .addGap(295, 295, 295))
+                            .addGroup(bg3Layout.createSequentialGroup()
+                                .addComponent(txtCedula)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(bg3Layout.createSequentialGroup()
+                                .addComponent(txtNombre)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(bg3Layout.createSequentialGroup()
+                                .addComponent(authorLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg3Layout.createSequentialGroup()
+                                .addComponent(txtApellido)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(bg3Layout.createSequentialGroup()
+                                .addComponent(catLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg3Layout.createSequentialGroup()
+                                .addComponent(txtTelefono)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(bg3Layout.createSequentialGroup()
+                                .addComponent(txtDireccion)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70)
                         .addGroup(bg3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(bg3Layout.createSequentialGroup()
+                                .addGap(70, 70, 70)
                                 .addGroup(bg3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(langTxt3)
                                     .addGroup(bg3Layout.createSequentialGroup()
                                         .addComponent(langLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(228, 228, 228))
+                                        .addGap(300, 300, 300))
                                     .addGroup(bg3Layout.createSequentialGroup()
                                         .addComponent(pagsLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(223, 223, 223))
-                                    .addComponent(button3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(72, 72, 72))
-                            .addGroup(bg3Layout.createSequentialGroup()
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(bg3Layout.createSequentialGroup()
-                        .addComponent(title3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(553, 553, 553))))
+                                        .addGap(295, 295, 295))
+                                    .addGroup(bg3Layout.createSequentialGroup()
+                                        .addGroup(bg3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtNacimiento)
+                                            .addComponent(comboCarrera, 0, 322, Short.MAX_VALUE))
+                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg3Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(17, 17, 17))))))
+            .addGroup(bg3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg3Layout.createSequentialGroup()
+                    .addContainerGap(637, Short.MAX_VALUE)
+                    .addComponent(btnSubir2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(253, 253, 253)))
         );
         bg3Layout.setVerticalGroup(
             bg3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,37 +215,47 @@ public class Registro_docentes extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(bg3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(bg3Layout.createSequentialGroup()
-                        .addComponent(langLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(langTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pagsLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                        .addGap(29, 29, 29)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(198, 198, 198)
-                        .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSeparator4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(bg3Layout.createSequentialGroup()
-                        .addComponent(titleLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(titleTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dateLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dateTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(authorLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(authorTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)
-                        .addComponent(catLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(catTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(22, 22, 22))
+                        .addComponent(jSeparator4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(22, 22, 22))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg3Layout.createSequentialGroup()
+                        .addGroup(bg3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(bg3Layout.createSequentialGroup()
+                                .addComponent(langLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pagsLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                                .addGap(29, 29, 29)
+                                .addComponent(comboCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(167, 167, 167)
+                                .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(38, 38, 38))
+                            .addGroup(bg3Layout.createSequentialGroup()
+                                .addComponent(titleLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)
+                                .addComponent(dateLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(8, 8, 8)
+                                .addComponent(authorLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(catLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(edLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(15, 15, 15))))
+            .addGroup(bg3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg3Layout.createSequentialGroup()
+                    .addContainerGap(416, Short.MAX_VALUE)
+                    .addComponent(btnSubir2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(51, 51, 51)))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -206,9 +285,45 @@ public class Registro_docentes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
-      
-    }//GEN-LAST:event_button3ActionPerformed
+    
+    private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtApellidoActionPerformed
+
+    private void txtDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDireccionActionPerformed
+
+    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefonoActionPerformed
+
+    private void comboCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCarreraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboCarreraActionPerformed
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        // TODO add your handling code here:
+        vista_admin ad=new vista_admin();
+        ad.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_btnRegresarActionPerformed
+
+    private void btnSubir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubir2ActionPerformed
+        // TODO add your handling code here:
+        RDocentes doc =new RDocentes();
+        doc.Insertar(comboCarrera,txtCedula, txtNombre, txtApellido, txtDireccion, txtTelefono, txtNacimiento);
+        
+    }//GEN-LAST:event_btnSubir2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -246,102 +361,25 @@ public class Registro_docentes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel authorLbl;
-    private javax.swing.JLabel authorLbl1;
-    private javax.swing.JLabel authorLbl2;
     private javax.swing.JLabel authorLbl3;
-    private javax.swing.JTextField authorTxt;
-    private javax.swing.JTextField authorTxt1;
-    private javax.swing.JTextField authorTxt2;
-    private javax.swing.JTextField authorTxt3;
-    private javax.swing.JPanel bg;
-    private javax.swing.JPanel bg1;
-    private javax.swing.JPanel bg2;
     private javax.swing.JPanel bg3;
-    private javax.swing.JButton button;
-    private javax.swing.JButton button1;
-    private javax.swing.JButton button2;
-    private javax.swing.JButton button3;
-    private javax.swing.JLabel catLbl;
-    private javax.swing.JLabel catLbl1;
-    private javax.swing.JLabel catLbl2;
+    private javax.swing.JButton btnRegresar;
+    private javax.swing.JButton btnSubir2;
     private javax.swing.JLabel catLbl3;
-    private javax.swing.JTextField catTxt;
-    private javax.swing.JTextField catTxt1;
-    private javax.swing.JTextField catTxt2;
-    private javax.swing.JTextField catTxt3;
-    private javax.swing.JLabel dateLbl;
-    private javax.swing.JLabel dateLbl1;
-    private javax.swing.JLabel dateLbl2;
+    private javax.swing.JComboBox<String> comboCarrera;
     private javax.swing.JLabel dateLbl3;
-    private javax.swing.JTextField dateTxt;
-    private javax.swing.JTextField dateTxt1;
-    private javax.swing.JTextField dateTxt2;
-    private javax.swing.JTextField dateTxt3;
-    private javax.swing.JLabel descLbl;
-    private javax.swing.JLabel descLbl1;
-    private javax.swing.JLabel descLbl2;
-    private javax.swing.JTextField descTxt;
-    private javax.swing.JTextField descTxt1;
-    private javax.swing.JTextField descTxt2;
-    private javax.swing.JLabel dispLbl;
-    private javax.swing.JLabel dispLbl1;
-    private javax.swing.JLabel dispLbl2;
-    private javax.swing.JTextField dispTxt;
-    private javax.swing.JTextField dispTxt1;
-    private javax.swing.JTextField dispTxt2;
-    private javax.swing.JLabel edLbl;
-    private javax.swing.JLabel edLbl1;
-    private javax.swing.JLabel edLbl2;
     private javax.swing.JLabel edLbl3;
-    private javax.swing.JTextField edTxt;
-    private javax.swing.JTextField edTxt1;
-    private javax.swing.JTextField edTxt2;
-    private javax.swing.JTextField edTxt3;
-    private javax.swing.JLabel ejemLbl;
-    private javax.swing.JLabel ejemLbl1;
-    private javax.swing.JLabel ejemLbl2;
-    private javax.swing.JTextField ejemTxt;
-    private javax.swing.JTextField ejemTxt1;
-    private javax.swing.JTextField ejemTxt2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JLabel langLbl;
-    private javax.swing.JLabel langLbl1;
-    private javax.swing.JLabel langLbl2;
     private javax.swing.JLabel langLbl3;
-    private javax.swing.JTextField langTxt;
-    private javax.swing.JTextField langTxt1;
-    private javax.swing.JTextField langTxt2;
-    private javax.swing.JTextField langTxt3;
-    private javax.swing.JLabel pagsLbl;
-    private javax.swing.JLabel pagsLbl1;
-    private javax.swing.JLabel pagsLbl2;
     private javax.swing.JLabel pagsLbl3;
-    private javax.swing.JTextField pagsTxt;
-    private javax.swing.JTextField pagsTxt1;
-    private javax.swing.JTextField pagsTxt2;
-    private javax.swing.JLabel stockLbl;
-    private javax.swing.JLabel stockLbl1;
-    private javax.swing.JLabel stockLbl2;
-    private javax.swing.JTextField stockTxt;
-    private javax.swing.JTextField stockTxt1;
-    private javax.swing.JTextField stockTxt2;
-    private javax.swing.JLabel title;
-    private javax.swing.JLabel title1;
-    private javax.swing.JLabel title2;
     private javax.swing.JLabel title3;
-    private javax.swing.JLabel titleLbl;
-    private javax.swing.JLabel titleLbl1;
-    private javax.swing.JLabel titleLbl2;
     private javax.swing.JLabel titleLbl3;
-    private javax.swing.JTextField titleTxt;
-    private javax.swing.JTextField titleTxt1;
-    private javax.swing.JTextField titleTxt2;
-    private javax.swing.JTextField titleTxt3;
+    private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtNacimiento;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }
