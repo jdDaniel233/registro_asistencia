@@ -24,7 +24,9 @@ public class Control_asistencia {
         
         /*Docente doc= new Docente();
         doc.setVisible(true);*/
-       
+        inicio ini=new inicio();
+        ini.setVisible(true);
+        
         
         
        /*Conexion objetoConexion = new Conexion();
